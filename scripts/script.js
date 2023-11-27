@@ -76,11 +76,11 @@ function afficherMessageErreur(message) {
     let spanErreurMessage = document.getElementById("erreurMessage")
 
     if (!spanErreurMessage) {
-        let popup = document.querySelector(".popup")
+        let popupPartage = document.querySelector(".popupPartage")
         spanErreurMessage = document.createElement("span")
         spanErreurMessage.id = "erreurMessage"
         
-        popup.append(spanErreurMessage)
+        popupPartage.append(spanErreurMessage)
     }
     
     spanErreurMessage.innerText = message
@@ -161,6 +161,7 @@ function lancerJeu() {
             // On désactive le bouton valider
             btnValiderMot.disabled = true
             displayBtn(i < listeProposition.length)
+            initEndGameModal()
             // On désactive les boutons radios
             for (let indexBtnRadio = 0; indexBtnRadio < listeBtnRadio.length; indexBtnRadio++) {
                 listeBtnRadio[indexBtnRadio].disabled = true

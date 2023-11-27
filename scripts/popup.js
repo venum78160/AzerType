@@ -9,46 +9,61 @@
 /**
  * Cette fonction affiche la popup pour partager son score. 
  */
-function afficherPopup() {
+function afficherPopupBackground() {
     let popupBackground = document.querySelector(".popupBackground")
-    // La popup est masquée par défaut (display:none), ajouter la classe "active"
-    // va changer son display et la rendre visible. 
     popupBackground.classList.add("active")
 }
 
-/**
- * Cette fonction cache la popup pour partager son score. 
- */
-function cacherPopup() {
+function cacherPopupBackground() {
     let popupBackground = document.querySelector(".popupBackground")
-    // La popup est masquée par défaut (display:none), supprimer la classe "active"
-    // va rétablir cet affichage par défaut. 
     popupBackground.classList.remove("active")
 }
 
+function afficherPopupPartage(){
+    afficherPopupBackground()
+    document.getElementById(`popupPartage`).style.display = 'block'
+}
+
+function cacherPopupPartage(){
+    cacherPopupBackground()
+    document.getElementById(`popupPartage`).style.display = 'none'
+}
 
 /**
  * Cette fonction initialise les écouteurs d'événements qui concernent 
  * l'affichage de la popup. 
  */
+function closeModalEndGame() {
+    document.getElementById('endGameModal').style.display = 'none';
+    cacherPopupBackground()
+}
+
+function openModalEndGame() {
+    document.getElementById('endGameModal').style.display = 'block';
+}
+
+function initEndGameModal(){
+    afficherPopupBackground()
+    openModalEndGame()
+}
+
 function initAddEventListenerPopup() {
-    // On écoute le click sur le bouton "partager"
+    endGameModal = document.getElementById('endGameModal')
     btnPartage = document.querySelector(".partagerBtn")
     let popupBackground = document.querySelector(".popupBackground")
     btnPartage.addEventListener("click", () => {
-        // Quand on a cliqué sur le bouton partagé, on affiche la popup
-        afficherPopup()
+        afficherPopupPartage()
     })
 
     // On écoute le click sur la div "popupBackground"
     popupBackground.addEventListener("click", (event) => {
         // Si on a cliqué précisément sur la popupBackground 
         // (et pas un autre élément qui se trouve dedant)
-        if (event.target === popupBackground) {
-            // Alors on cache la popup
-            cacherPopup()
+        console.log("click back", event.target)
+        if (event.target === popupBackground ) {
+            console.log("here", event.target)
+            closeModalEndGame()
+            cacherPopupPartage()
         }
     })
 }
-
-function

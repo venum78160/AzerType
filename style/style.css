@@ -208,7 +208,8 @@ footer {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-.popup {
+.popupPartage {
+    display: none;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -233,24 +234,62 @@ footer {
     display: flex !important;
 }
 
-.popup p {
+.popupPartage p {
     width: 100%;
     margin-bottom: 20px;
 }
 
-.popup div {
+.popupPartage div {
     font-size: 25px;
     padding : 5px;
     padding-bottom: 15px;
 }
 
 /* Eléments de formulaire */
-.popup input {
+.popupPartage input {
     margin-bottom: 10px;
 }
 
-.popup button {
+.popupPartage button {
     margin: 5px;
+}
+
+
+/* Style de la modale */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
 }
 
 /** 
